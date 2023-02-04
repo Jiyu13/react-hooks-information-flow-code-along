@@ -10,9 +10,10 @@ function Parent() {
   const [childrenColor, setChildrenColor] = useState("#FFF")
 
   // 1. handle update state variable - color
-  function handleColorChange() {
+  function handleColorChange(newChildrenColor) {  // 7. takes in an arg to update childrenColor state
     const newRandomColor = getRandomColor()
     setColor(newRandomColor)  // update color state to a new value
+    setChildrenColor(newChildrenColor)
 
   }
 
