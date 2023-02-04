@@ -4,17 +4,19 @@ import Child from "./Child";
 
 function Parent() {
   const randomColor = getRandomColor();
-  const [color, setColor] = useState(randomColor);
+  const [color, setColor] = useState(randomColor); // initial value for color state
 
+  // 1. handle update state variable - color
   function handleColorChange() {
-    const newColor = getRandomColor()
-    setColor(newColor)
+    const newRandomColor = getRandomColor()
+    setColor(newRandomColor)
   }
 
   return (
     <div className="parent" style={{ backgroundColor: color }}>
-      <Child onClick={handleColorChange}/>
-      <Child onClick={handleColorChange}/>
+      {/* 2. pass in callback fn as props */}
+      <Child onChangeColor={handleColorChange}/>
+      <Child onChangeColor={handleColorChange}/>
     </div>
   );
 }
